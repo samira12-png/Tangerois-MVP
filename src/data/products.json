@@ -3,7 +3,7 @@
     "id": 1,
     "name": "iPhone 14 Pro",
     "price": 999,
-    "category": "Smartphones",
+    "category": "SmartPhone",
     "image": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=300&fit=crop",
     "marque": "Apple",
     "description": "Latest iPhone with advanced camera and A16 chip."
@@ -12,63 +12,126 @@
     "id": 2,
     "name": "Samsung Galaxy S23",
     "price": 799,
-    "category": "Smartphones",
+    "category": "SmartPhone",
     "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=300&fit=crop",
     "marque": "Samsung",
     "description": "High-performance Android phone with stunning display."
   },
   {
     "id": 3,
-    "name": "MacBook Air M2",
-    "price": 1199,
-    "category": "Laptops",
-    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
-    "marque": "Apple",
-    "description": "Ultra-thin laptop with M2 chip for productivity."
+    "name": "Google Pixel 7",
+    "price": 599,
+    "category": "SmartPhone",
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
+    "marque": "Google",
+    "description": "Smartphone with exceptional camera and pure Android experience."
   },
   {
     "id": 4,
-    "name": "Dell XPS 13",
-    "price": 1099,
-    "category": "Laptops",
-    "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop",
-    "marque": "Dell",
-    "description": "Compact laptop with Intel i7 and InfinityEdge display."
+    "name": "Samsung QLED 55\"",
+    "price": 1299,
+    "category": "Télévisions",
+    "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=300&fit=crop",
+    "marque": "Samsung",
+    "description": "4K QLED TV with vibrant colors and smart features."
   },
   {
     "id": 5,
-    "name": "Sony WH-1000XM5",
-    "price": 399,
-    "category": "Headphones",
-    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
-    "marque": "Sony",
-    "description": "Noise-cancelling wireless headphones with premium sound."
+    "name": "LG OLED 65\"",
+    "price": 1499,
+    "category": "Télévisions",
+    "image": "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400&h=300&fit=crop",
+    "marque": "LG",
+    "description": "Premium OLED TV with perfect blacks and streaming apps."
   },
   {
     "id": 6,
-    "name": "AirPods Pro",
-    "price": 249,
-    "category": "Headphones",
-    "image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c9bf1d?w=400&h=300&fit=crop",
-    "marque": "Apple",
-    "description": "Wireless earbuds with active noise cancellation."
+    "name": "Sony Bravia 50\"",
+    "price": 899,
+    "category": "Télévisions",
+    "image": "https://images.unsplash.com/photo-1461151304267-38535e780c79?w=400&h=300&fit=crop",
+    "marque": "Sony",
+    "description": "Full HD LED TV with Android TV and voice control."
   },
   {
     "id": 7,
-    "name": "iPad Air",
-    "price": 599,
-    "category": "Tablets",
-    "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop",
-    "marque": "Apple",
-    "description": "Versatile tablet with M1 chip for work and play."
+    "name": "Samsung Side-by-Side Fridge",
+    "price": 1899,
+    "category": "Réfrigérateurs",
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop",
+    "marque": "Samsung",
+    "description": "Large capacity fridge with ice maker and smart inverter."
   },
   {
     "id": 8,
-    "name": "Samsung Galaxy Tab S8",
-    "price": 699,
-    "category": "Tablets",
-    "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop",
+    "name": "LG French Door Fridge",
+    "price": 1699,
+    "category": "Réfrigérateurs",
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop",
+    "marque": "LG",
+    "description": "Energy-efficient fridge with door-in-door design."
+  },
+  {
+    "id": 9,
+    "name": "Whirlpool Bottom-Freezer Fridge",
+    "price": 1399,
+    "category": "Réfrigérateurs",
+    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+    "marque": "Whirlpool",
+    "description": "Spacious fridge with adjustable shelves and humidity control."
+  },
+  {
+    "id": 10,
+    "name": "KitchenAid Stand Mixer",
+    "price": 499,
+    "category": "Cuisine",
+    "image": "https://images.unsplash.com/photo-1556909114-4c36e03d6b3f?w=400&h=300&fit=crop",
+    "marque": "KitchenAid",
+    "description": "Powerful mixer for baking and cooking with multiple attachments."
+  },
+  {
+    "id": 11,
+    "name": "Breville Espresso Machine",
+    "price": 799,
+    "category": "Cuisine",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop",
+    "marque": "Breville",
+    "description": "Automatic espresso maker with milk frother for home baristas."
+  },
+  {
+    "id": 12,
+    "name": "Instant Pot Duo",
+    "price": 99,
+    "category": "Cuisine",
+    "image": "https://images.unsplash.com/photo-1556909114-4c36e03d6b3f?w=400&h=300&fit=crop",
+    "marque": "Instant Pot",
+    "description": "Multi-cooker for pressure cooking, slow cooking, and more."
+  },
+  {
+    "id": 13,
+    "name": "Dyson Vacuum Cleaner",
+    "price": 599,
+    "category": "Nettoyage",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+    "marque": "Dyson",
+    "description": "Cordless vacuum with powerful suction and HEPA filter."
+  },
+  {
+    "id": 14,
+    "name": "Shark Navigator Robot Vacuum",
+    "price": 399,
+    "category": "Nettoyage",
+    "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=300&fit=crop",
+    "marque": "Shark",
+    "description": "Robot vacuum for automated cleaning with smart navigation."
+  },
+  {
+    "id": 15,
+    "name": "Samsung Front-Load Washer",
+    "price": 1099,
+    "category": "Lave-linge",
+    "image": "https://images.unsplash.com/photo-1626806787426-5910811b6325?w=400&h=300&fit=crop",
     "marque": "Samsung",
-    "description": "Android tablet with S Pen and high-resolution display."
+    "description": "Energy-efficient washing machine with steam cleaning and large capacity."
   }
 ]

@@ -1,57 +1,57 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { StoreContext } from '../context/StoreContext';
+import React from 'react';
+import { useStore } from '../context/StoreContext';
 
-export default function Cart() {
-  const { state, updateCartQuantity, removeFromCart, clearCart } = useContext(StoreContext);
-  const subtotal = state.cart.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
+const Cart = () => {
+  const { state, dispatch } = useStore();
+
+  const updateQuantity = (id, quantity) => {
+    if (quantity <= 0) {
+      dispatch({ type: 'REMOVE_FROM_CART', payload: id });
+    } else {
+      dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
+    }
+  };
+
+  const total = state.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Panier</h1>
+    <div className="container py-5">
+      <h2 className="mb-4">Your Cart</h2>
       {state.cart.length === 0 ? (
-        <div className="text-center">
-          <p>Ton panier est vide.</p>
-          <Link to="/products" className="btn btn-red">Voir les produits</Link>
-        </div>
+        <p>Your cart is empty.</p>
       ) : (
-        <div className="table-responsive">
-          <table className="table align-middle">
-            <thead>
-              <tr>
-                <th>Produit</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Total</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
+        <div className="row">
+          <div className="col-md-8">
+            <ul className="list-group list-group-flush">
               {state.cart.map(item => (
-                <tr key={item.productId}>
-                  <td>{item.product.name}</td>
-                  <td>{item.product.price} MAD</td>
-                  <td>
-                    <input type="number" min="1" value={item.quantity}
-                      onChange={(e) => updateCartQuantity(item.productId, Number(e.target.value))}
-                      className="form-control" style={{width: '80px'}} />
-                  </td>
-                  <td>{item.product.price * item.quantity} MAD</td>
-                  <td>
-                    <button onClick={() => removeFromCart(item.productId)} className="btn btn-outline-danger btn-sm">Supprimer</button>
-                  </td>
-                </tr>
+                <li key={item.id} className="list-group-item d-flex align-items-center">
+                  <img src={item.image} alt={item.name} className="me-3" style={{ width: '80px', height: '60px', objectFit: 'cover' }} />
+                  <div className="flex-grow-1">
+                    <h5>{item.name}</h5>
+                                        <p className="mb-1">${item.price}</p>
+                  </div>
+                  <div className="d-flex align-items-center">
+                    <button className="btn btn-outline-secondary btn-sm" onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
+                    <span className="mx-2">{item.quantity}</span>
+                    <button className="btn btn-outline-secondary btn-sm" onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+                  </div>
+                  <button className="btn btn-danger btn-sm ms-3" onClick={() => dispatch({ type: 'REMOVE_FROM_CART', payload: item.id })}>Remove</button>
+                </li>
               ))}
-            </tbody>
-          </table>
-
-          <div className="d-flex justify-content-end align-items-center gap-3 mt-3">
-            <p className="fw-bold mb-0">Sous-total: {subtotal} MAD</p>
-            <button onClick={clearCart} className="btn btn-outline-danger">Vider le panier</button>
-            <button className="btn btn-red">Passer commande</button>
+            </ul>
+          </div>
+          <div className="col-md-4">
+            <div className="card shadow">
+              <div className="card-body">
+                <h5 className="card-title">Total: ${total.toFixed(2)}</h5>
+                <button className="btn btn-primary btn-lg w-100">Checkout</button>
+              </div>
+            </div>
           </div>
         </div>
       )}
     </div>
   );
-}
+};
+
+export default Cart;

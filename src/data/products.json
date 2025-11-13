@@ -1,74 +1,74 @@
 [
   {
     "id": 1,
-    "name": "Réfrigérateur 300L",
-    "price": 4500,
-    "category": "Réfrigérateurs",
-    "brand": "Samsung",
-    "image": "https://th.bing.com/th/id/R.98a2785d6cf5f09e24e8030b42b93250?rik=W0KT%2bUA0CjiV1w&pid=ImgRaw&r=0",
-    "description": "Réfrigérateur double portes, froid performant."
+    "name": "iPhone 14 Pro",
+    "price": 999,
+    "category": "Smartphones",
+    "image": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=300&fit=crop",
+    "marque": "Apple",
+    "description": "Latest iPhone with advanced camera and A16 chip."
   },
   {
     "id": 2,
-    "name": "Machine à laver 8kg",
-    "price": 3200,
-    "category": "Lave-linge",
-    "brand": "LG",
-    "image": "https://i.roamcdn.net/hz/ed/listing-gallery-full-1920w/cfa83425c12f225d47635ee66c2da5e9/-/horizon-files-prod/ed/picture/qde7g5x8/8951d6db566bed82cd8cdc759be45f503dd87670.jpg",
-    "description": "Machine à laver éco, programme rapide."
+    "name": "Samsung Galaxy S23",
+    "price": 799,
+    "category": "Smartphones",
+    "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=300&fit=crop",
+    "marque": "Samsung",
+    "description": "High-performance Android phone with stunning display."
   },
   {
     "id": 3,
-    "name": "TV LED 42\"",
-    "price": 2800,
-    "category": "Télévisions",
-    "brand": "Sony",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9wHcs8rEgYYy4UP17G1I6dYEhA_62GzKaeg&s",
-    "description": "TV HD avec ports HDMI et USB."
+    "name": "MacBook Air M2",
+    "price": 1199,
+    "category": "Laptops",
+    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
+    "marque": "Apple",
+    "description": "Ultra-thin laptop with M2 chip for productivity."
   },
   {
     "id": 4,
-    "name": "Micro-ondes 25L",
-    "price": 600,
-    "category": "Cuisine",
-    "brand": "Philips",
-    "image": "https://tangerois.ma/17882-large_default/micro-onde-inox-encastrable-25-litres-38900033-candy.jpg",
-    "description": "Micro-ondes compact, plusieurs programmes."
+    "name": "Dell XPS 13",
+    "price": 1099,
+    "category": "Laptops",
+    "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop",
+    "marque": "Dell",
+    "description": "Compact laptop with Intel i7 and InfinityEdge display."
   },
   {
     "id": 5,
-    "name": "Aspirateur sans sac",
-    "price": 850,
-    "category": "Nettoyage",
-    "brand": "Bosch",
-    "image": "https://via.placeholder.com/400x250?text=Aspirateur",
-    "description": "Aspirateur silencieux et puissant."
+    "name": "Sony WH-1000XM5",
+    "price": 399,
+    "category": "Headphones",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+    "marque": "Sony",
+    "description": "Noise-cancelling wireless headphones with premium sound."
   },
   {
     "id": 6,
-    "name": "Ventilateur sur pied",
-    "price": 300,
-    "category": "Climatisation",
-    "brand": "Whirlpool",
-    "image": "https://via.placeholder.com/400x250?text=Ventilateur",
-    "description": "Ventilateur oscillant 3 vitesses."
+    "name": "AirPods Pro",
+    "price": 249,
+    "category": "Headphones",
+    "image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c9bf1d?w=400&h=300&fit=crop",
+    "marque": "Apple",
+    "description": "Wireless earbuds with active noise cancellation."
   },
   {
     "id": 7,
-    "name": "Bouilloire Inox 1.7L",
-    "price": 220,
-    "category": "Cuisine",
-    "brand": "Philips",
-    "image": "https://via.placeholder.com/400x250?text=Bouilloire",
-    "description": "Ébullition rapide, design moderne."
+    "name": "iPad Air",
+    "price": 599,
+    "category": "Tablets",
+    "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop",
+    "marque": "Apple",
+    "description": "Versatile tablet with M1 chip for work and play."
   },
   {
     "id": 8,
-    "name": "Cafetière 12 tasses",
-    "price": 450,
-    "category": "Cuisine",
-    "brand": "Bosch",
-    "image": "https://via.placeholder.com/400x250?text=Cafetière",
-    "description": "Cafetière programmable avec minuterie."
+    "name": "Samsung Galaxy Tab S8",
+    "price": 699,
+    "category": "Tablets",
+    "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop",
+    "marque": "Samsung",
+    "description": "Android tablet with S Pen and high-resolution display."
   }
 ]

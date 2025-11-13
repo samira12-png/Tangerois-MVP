@@ -1,57 +1,29 @@
-import React, { createContext, useReducer } from 'react';
-import productsData from '../data/products.json';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import reducer from '../reducers/reducer';
+import productsData from '../data/products.json';
+
+const StoreContext = createContext();
 
 const initialState = {
-  products: productsData,
-  cart: []
+  products: [],
+  filteredProducts: [],
+  cart: [],
+  searchQuery: '',
+  filters: { category: '', minPrice: '', maxPrice: '' },
 };
 
-export const StoreContext = createContext();
-
-export function StoreProvider({ children }) {
+export const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addToCart = (id) => {
-    dispatch({ type: 'ADD_TO_CART', payload: id });
-  };
-
-  const updateCartQuantity = (id, quantity) => {
-    dispatch({ type: 'UPDATE_CART', payload: { id, quantity } });
-  };
-
-  const removeFromCart = (id) => {
-    dispatch({ type: 'REMOVE_CART', payload: id });
-  };
-
-  const clearCart = () => {
-    dispatch({ type: 'CLEAR_CART' });
-  };
-
-  const addProduct = (product) => {
-    dispatch({ type: 'ADD_PRODUCT', payload: product });
-  };
-
-  const updateProduct = (product) => {
-    dispatch({ type: 'UPDATE_PRODUCT', payload: product });
-  };
-
-  const deleteProduct = (id) => {
-    dispatch({ type: 'DELETE_PRODUCT', payload: id });
-  };
+  useEffect(() => {
+    dispatch({ type: 'LOAD_PRODUCTS', payload: productsData });
+  }, []);
 
   return (
-    <StoreContext.Provider value={{
-      state,
-      addToCart,
-      updateCartQuantity,
-      removeFromCart,
-      clearCart,
-      addProduct,
-      updateProduct,
-      deleteProduct
-    }}>
+    <StoreContext.Provider value={{ state, dispatch }}>
       {children}
     </StoreContext.Provider>
   );
-}
+};
+
+export const useStore = () => useContext(StoreContext);

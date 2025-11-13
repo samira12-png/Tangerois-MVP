@@ -1,36 +1,33 @@
-import React, { useContext, useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
-import { StoreContext } from '../context/StoreContext';
+import React from 'react';
+import { useStore } from '../context/StoreContext';
 import ProductCard from '../components/ProductCard';
+import Filter from '../components/Filter';
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
-
-export default function ProductList() {
-  const { state, addToCart } = useContext(StoreContext);
-  const q = useQuery();
-  const categoryFilter = q.get('category') || '';
-  const search = q.get('search') || '';
-
-  const products = useMemo(() => {
-    return state.products.filter(p => {
-      if (categoryFilter && p.category !== categoryFilter) return false;
-      if (search && !p.name.toLowerCase().includes(search.toLowerCase())) return false;
-      return true;
-    });
-  }, [state.products, categoryFilter, search]);
+const ProductList = () => {
+  const { state } = useStore();
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Nos produits</h1>
-      <div className="row g-4">
-        {products.length > 0 ? products.map(p => (
-          <ProductCard key={p.id} product={p} onAdd={addToCart} />
-        )) : (
-          <p className="text-center">Aucun produit trouvé.</p>
-        )}
+    <div className="container py-5">
+      <div className="row">
+        <div className="col-md-3">
+          <Filter />
+        </div>
+        <div className="col-md-9">
+          <h2 className="mb-4">All Products</h2>
+          <div className="row">
+            {state.filteredProducts.map(product => (
+              <div key={product.id} className="col-md-4 mb-4">
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+          {state.filteredProducts.length === 0 && (
+            <p className="text-center">No products found.</p>
+          )}
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default ProductList;

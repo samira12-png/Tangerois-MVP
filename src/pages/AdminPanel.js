@@ -1,65 +1,68 @@
-import React, { useContext, useState } from 'react';
-import { StoreContext } from '../context/StoreContext';
+import React, { useState } from 'react';
+import { useStore } from '../context/StoreContext';
 import ProductForm from '../components/ProductForm';
-import ProductCard from '../components/ProductCard';
 
-export default function AdminPanel() {
-  const { state, addProduct, updateProduct, deleteProduct } = useContext(StoreContext);
-  const [editing, setEditing] = useState(null);
+const AdminPanel = () => {
+  const { state, dispatch } = useStore();
   const [showForm, setShowForm] = useState(false);
+  const [editingProduct, setEditingProduct] = useState(null);
 
-  const handleAdd = (product) => {
-    addProduct(product);
-    setShowForm(false);
+  const handleAdd = () => {
+    setEditingProduct(null);
+    setShowForm(true);
   };
 
-  const handleUpdate = (product) => {
-    updateProduct(product);
-    setEditing(null);
-    setShowForm(false);
+  const handleEdit = (product) => {
+    setEditingProduct(product);
+    setShowForm(true);
+  };
+
+  const handleDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this product?')) {
+      dispatch({ type: 'DELETE_PRODUCT', payload: id });
+    }
   };
 
   return (
-    <div className="container py-5 admin-panel">
-      <div className="text-center mb-4">
-        <h1 className="fw-bold text-danger mb-3">🧰 Admin Panel</h1>
-        <p className="text-muted">Gérez vos produits facilement.</p>
-      </div>
-
-      <div className="text-center mb-4">
-        <button
-          onClick={() => { setEditing(null); setShowForm(s => !s); }}
-          className="btn btn-danger px-4 py-2"
-        >
-          {showForm ? '✖ Fermer' : '➕ Ajouter un produit'}
-        </button>
-      </div>
-
-      {showForm && (
-        <div className="card p-4 mb-5 form-card mx-auto" style={{ maxWidth: '600px' }}>
-          <ProductForm initial={editing} onSubmit={editing ? handleUpdate : handleAdd} />
+    <div className="container py-5">
+      <div className="row mb-4">
+        <div className="col">
+          <h2>Admin Panel</h2>
+          <button className="btn btn-primary" onClick={handleAdd}>Add Product</button>
         </div>
-      )}
-
-      <div className="row gy-3">
-        {state.products.map(p => (
-          <div key={p.id} className="col-md-6 col-lg-4">
-            <div className="card product-card shadow-sm border-0">
-              <div className="card-body d-flex flex-column justify-content-between">
-                <div>
-                  <h5 className="card-title fw-semibold text-dark">{p.name}</h5>
-                  <p className="card-text text-muted small mb-2">{p.category}</p>
-                  <p className="fw-bold text-danger">{p.price} MAD</p>
-                </div>
-                <div className="d-flex justify-content-between mt-3">
-                  <button onClick={() => { setEditing(p); setShowForm(true); }} className="btn btn-outline-primary btn-sm w-50 me-2">✏️ Modifier</button>
-                  <button onClick={() => { if(window.confirm('Supprimer ce produit ?')) deleteProduct(p.id); }} className="btn btn-outline-danger btn-sm w-50">🗑️ Supprimer</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
+      <div className="row">
+        <div className="col">
+          <table className="table table-striped table-bordered table-hover table-responsive">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {state.products.map(product => (
+                <tr key={product.id}>
+                  <td>{product.id}</td>
+                  <td>{product.name}</td>
+                  <td>${product.price}</td>
+                  <td>{product.category}</td>
+                  <td>
+                    <button className="btn btn-warning btn-sm me-2" onClick={() => handleEdit(product)}>Edit</button>
+                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(product.id)}>Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <ProductForm show={showForm} onHide={() => setShowForm(false)} product={editingProduct} />
     </div>
   );
-}
+};
+
+export default AdminPanel;
